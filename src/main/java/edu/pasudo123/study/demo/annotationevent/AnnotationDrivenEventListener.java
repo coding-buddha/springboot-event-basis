@@ -17,14 +17,14 @@ import org.springframework.stereotype.Component;
  * @Aysnc 애노테이션을 같이 추가해준다.
  *
  */
-@Slf4j
-@Component
-public class AnnotationDrivenEventListener {
-
-    @EventListener
-    public void handleContext(final ContextRefreshedEvent event) {
-        log.info("[annotation-based-event] : sync event start !!");
-        new MyWorkerProcess().doSomething();
-        log.info("[annotation-based-event] : sync event end !!");
-    }
-}
+//@Slf4j
+//@Component
+//public class AnnotationDrivenEventListener {
+//
+//    @EventListener
+//    public void handleContext(final ContextRefreshedEvent event) {
+//        log.info("[annotation-based-event] : sync event start !!");
+//        new MyWorkerProcess().doSomething();
+//        log.info("[annotation-based-event] : sync event end !!");
+//    }
+//}

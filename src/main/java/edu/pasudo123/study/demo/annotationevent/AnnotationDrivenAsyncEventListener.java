@@ -15,7 +15,7 @@ public class AnnotationDrivenAsyncEventListener {
     public void handleContext(final ContextRefreshedEvent event) {
         log.info("[annotation-based-event] : async event start !!");
         // 해당 작업은 비동기로 메인 스레드가 아닌 별도의 task 스레드로 병렬 실행된다.
-        // new MyWorkerProcess().doSomething();
+        new MyWorkerProcess().doSomething();
         log.info("[annotation-based-event] : async event end !!");
     }
 }
