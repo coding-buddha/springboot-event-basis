@@ -31,7 +31,7 @@ public class CustomSpringEventListener implements ApplicationListener<CustomSpri
 ```
 
 ## spring 4.2 이후
-```
+```java
 // @EventListener 애노테이션으로 간단하게 이벤트를 발송할 수 있다.
 // 아래는 동기식 이벤트 발송이다.
 @Slf4j
