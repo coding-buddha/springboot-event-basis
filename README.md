@@ -28,6 +28,16 @@ public class CustomSpringEventListener implements ApplicationListener<CustomSpri
         log.info("");
     }
 }
+
+// 비동기로 보내고 싶다면? ApplicationEventMulticaster 를 빈으로 등록하자
+@Bean(name = "applicationEventMulticaster")
+public ApplicationEventMulticaster simpleApplicationEventMulticaster() {
+    SimpleApplicationEventMulticaster eventMulticaster =
+            new SimpleApplicationEventMulticaster();
+
+    eventMulticaster.setTaskExecutor(new SimpleAsyncTaskExecutor());
+    return eventMulticaster;
+}
 ```
 
 ## spring 4.2 이후
