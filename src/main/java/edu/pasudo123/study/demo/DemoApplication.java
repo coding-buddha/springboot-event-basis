@@ -25,13 +25,14 @@ public class DemoApplication implements ApplicationRunner {
     public static void main(String[] args) {
         final ConfigurableApplicationContext context = new SpringApplicationBuilder(DemoApplication.class)
                 .listeners(
+                        // 스프링 자제 이벤트 리스너 등록
                         new ContextStartedListener(),
                         new ContextRefreshedListener(),
                         new ContextClosedListener())
                 .run(args);
 
         context.start();    // 따로 start 가 되는게 아니라 start 되었다고 명시해주어야 함
-        // context.close();
+        // context.close(); // spring itself event 가 발행됨 : ContextClosedListener
     }
 
     @Override

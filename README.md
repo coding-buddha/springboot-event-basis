@@ -71,6 +71,16 @@ public class AnnotationDrivenAsyncEventListener {
         log.info("[annotation-based-event] : async event end !!");
     }
 }
+
+// ContextRefreshEvent 는 스프링 자체 이벤트이고, SpringApplicationBuilder 객체에서 별도로 listener() 를 등록해주어야 한다.
+// DemoApplication.java 에 있는 내용.
+final ConfigurableApplicationContext context = new SpringApplicationBuilder(DemoApplication.class)
+                    .listeners(
+                            // 스프링 자제 이벤트 리스너 등록
+                            new ContextStartedListener(),
+                            new ContextRefreshedListener(),
+                            new ContextClosedListener())
+                    .run(args);
 ```
 
 ## Transaction Bound Events

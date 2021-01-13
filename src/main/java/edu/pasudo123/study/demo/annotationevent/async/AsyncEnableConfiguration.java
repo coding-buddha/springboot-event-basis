@@ -1,4 +1,4 @@
-package edu.pasudo123.study.demo.annotationevent;
+package edu.pasudo123.study.demo.annotationevent.async;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;

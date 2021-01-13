@@ -7,6 +7,9 @@ import org.springframework.context.event.ApplicationEventMulticaster;
 import org.springframework.context.event.SimpleApplicationEventMulticaster;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 
+/**
+ * spring 4.2 버전에서의 event 이용 시, async 를 적용할 수 있도록 하는 방법
+ */
 @Profile("async")
 @Configuration
 public class AsyncConfiguration {
