@@ -31,7 +31,7 @@ public class DemoApplication implements ApplicationRunner {
                 .run(args);
 
         context.start();    // 따로 start 가 되는게 아니라 start 되었다고 명시해주어야 함
-        context.close();
+        // context.close();
     }
 
     @Override

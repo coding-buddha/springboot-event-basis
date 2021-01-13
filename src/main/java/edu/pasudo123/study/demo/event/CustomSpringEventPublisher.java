@@ -22,7 +22,7 @@ public class CustomSpringEventPublisher {
 
         // main thread 가 수행된다.
         // ----------------------------------------------
-        // publisher 가 수행 시 호출 thread 는 개별 수행된다.
+        // (async 설정이 되어있다면) publisher 가 수행 시 호출 thread 는 개별 수행된다.
 
         publisher.publishEvent(event);
     }

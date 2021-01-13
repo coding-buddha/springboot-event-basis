@@ -12,6 +12,6 @@ public class ContextStartedListener implements ApplicationListener<ContextStarte
 
     @Override
     public void onApplicationEvent(ContextStartedEvent event) {
-        log.info("[spring-event-basis-project] handling context started event.");
+        log.info("========= [spring-event-basis-project] handling context started event. =========");
     }
 }
