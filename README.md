@@ -62,3 +62,6 @@ public class AnnotationDrivenAsyncEventListener {
     }
 }
 ```
+
+## Transaction Bound Events
+공부해야하는데...
