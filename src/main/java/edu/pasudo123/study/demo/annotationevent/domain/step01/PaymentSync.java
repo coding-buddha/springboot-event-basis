@@ -1,4 +1,4 @@
-package edu.pasudo123.study.demo.annotationevent.domain;
+package edu.pasudo123.study.demo.annotationevent.domain.step01;
 
 import lombok.Builder;
 import lombok.Getter;

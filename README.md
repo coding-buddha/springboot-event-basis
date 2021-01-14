@@ -85,3 +85,7 @@ final ConfigurableApplicationContext context = new SpringApplicationBuilder(Demo
 
 ## Transaction Bound Events
 공부해야하는데...
+
+## reference 
+* https://www.baeldung.com/spring-events
+* https://spring.io/blog/2015/02/11/better-application-events-in-spring-framework-4-2

@@ -1,4 +1,4 @@
-package edu.pasudo123.study.demo.annotationevent.domain;
+package edu.pasudo123.study.demo.annotationevent.domain.step01;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -10,19 +10,21 @@ import java.util.UUID;
 @Slf4j
 @Getter
 @ToString
-public class PaymentAsync implements Payment {
+public class PaymentConditionalAsync implements Payment {
 
     private final UUID uuid;
     private final Long pay;
+    private boolean awesome;
 
-    private PaymentAsync(final UUID uuid, final long pay) {
+    private PaymentConditionalAsync(UUID uuid, Long pay, final boolean awesome) {
         this.uuid = uuid;
         this.pay = pay;
+        this.awesome = awesome;
     }
 
     @Builder
-    public static PaymentAsync of(final UUID uuid, final long pay) {
-        return new PaymentAsync(uuid, pay);
+    public static PaymentConditionalAsync of(final UUID uuid, final long pay, final boolean awesome) {
+        return new PaymentConditionalAsync(uuid, pay, awesome);
     }
 
     @Override

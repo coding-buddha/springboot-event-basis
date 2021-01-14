@@ -1,6 +1,6 @@
 package edu.pasudo123.study.demo.annotationevent.worker;
 
-import edu.pasudo123.study.demo.annotationevent.domain.Payment;
+import edu.pasudo123.study.demo.annotationevent.domain.step01.Payment;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

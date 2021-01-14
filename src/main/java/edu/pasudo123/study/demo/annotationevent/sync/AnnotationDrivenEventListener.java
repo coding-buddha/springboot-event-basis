@@ -1,6 +1,6 @@
 package edu.pasudo123.study.demo.annotationevent.sync;
 
-import edu.pasudo123.study.demo.annotationevent.domain.PaymentSync;
+import edu.pasudo123.study.demo.annotationevent.domain.step01.PaymentSync;
 import edu.pasudo123.study.demo.annotationevent.worker.MyWorkerProcess;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
@@ -25,13 +25,11 @@ import java.util.Map;
 public class AnnotationDrivenEventListener {
 
     @EventListener
-    public Map<String, Object> handleContext(final PaymentSync event) {
+    public void handleEvent(final PaymentSync event) {
+        log.info("");
+        log.info("==============================================");
         log.info("[annotation-based-event] : sync event start !!");
         new MyWorkerProcess().doSomething(event);
         log.info("[annotation-based-event] : sync event end !!");
-        return new HashMap<>(){{
-            put("status", "success");
-            put("value", event);
-        }};
     }
 }
