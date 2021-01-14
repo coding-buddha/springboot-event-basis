@@ -1,8 +1,9 @@
-package edu.pasudo123.study.demo.annotationevent.async;
+package edu.pasudo123.study.demo.annotationevent.listener;
 
 import edu.pasudo123.study.demo.annotationevent.domain.step01.PaymentAsync;
 import edu.pasudo123.study.demo.annotationevent.domain.step01.PaymentConditionalAsync;
-import edu.pasudo123.study.demo.annotationevent.worker.MyWorkerProcess;
+import edu.pasudo123.study.demo.annotationevent.domain.step02.Pay;
+import edu.pasudo123.study.demo.annotationevent.domain.step02.PaymentCreateEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.Async;
@@ -24,7 +25,7 @@ public class AnnotationDrivenAsyncEventListener {
     }
 
     /**
-     * condition 이 해당 이벤트 수행여부를 결정한다.
+     * condition 이 해당 메소드 실행여부를 결정한다.
      * @param event
      */
     @Async
@@ -32,8 +33,18 @@ public class AnnotationDrivenAsyncEventListener {
     public void handleConditionalEvent(final PaymentConditionalAsync event) {
         log.info("");
         log.info("==============================================");
-        log.info("[annotation-based-event] : conditional async event start !!");
+        log.info("[annotation-based-event] : [conditional] async event start !!");
         new MyWorkerProcess().doSomething(event);
-        log.info("[annotation-based-event] : conditional async event end !!");
+        log.info("[annotation-based-event] : [conditional] async event end !!");
+    }
+
+    @Async
+    @EventListener
+    public void handleAutoWrapperEvent(final PaymentCreateEvent event) {
+        log.info("");
+        log.info("==============================================");
+        log.info("[annotation-based-event] : [auto-wrapping] async event start !!");
+        new MyWorkerProcess().doSomething(event);
+        log.info("[annotation-based-event] : [auto-wrapping] async event end !!");
     }
 }

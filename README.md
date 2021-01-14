@@ -83,12 +83,36 @@ final ConfigurableApplicationContext context = new SpringApplicationBuilder(Demo
                     .run(args);
 ```
 
+## PayloadApplicationEvent 가 발행되는 과정
+* 스프링 4.2 이후부터는 ApplicationEvent 를 상속받지 않아도 이벤트 발행이 된다.
+* 해당 작업이 가능한 이유는 AbstractApplicationContext 에서 publishEvent() 가 수행되는데, Application 단 Event 가 아닌 pojo 관련 이벤트 발행에 대해서는 스프링이 자동으로 아래와 같이 PayloadApplicationEvent 로 래핑한다.
+
+```java
+protected void publishEvent(Object event, @Nullable ResolvableType eventType) {
+		Assert.notNull(event, "Event must not be null");
+
+		// Decorate event as an ApplicationEvent if necessary
+		ApplicationEvent applicationEvent;
+		if (event instanceof ApplicationEvent) {
+			applicationEvent = (ApplicationEvent) event;
+		}
+		else {
+			applicationEvent = new PayloadApplicationEvent<>(this, event);
+			if (eventType == null) {
+				eventType = ((PayloadApplicationEvent<?>) applicationEvent).getResolvableType();
+			}
+		}
+
+// 이하 생략...
+```
+
 ## example
 |spec|desc|
 |---|---|
 |http://localhost:8080/sync|동기방식으로 이벤트 호출|
 |http://localhost:8080/async|비동기방식으로 이벤트 호출|
 |http://localhost:8080/async-condition?condition={true 또는 false}|비동기방식으로 조건부 이벤트 호출|
+|http://localhost:8080/auto-wrapping-event|pojo 에 ApplicationEvent 를 상속받지 않더라도 spring 단에서 유연하게 처리한다. (내부적으로 PayloadApplicationEvent 로 wrapping 하여 이벤트가 호출됨)|
 
 ## Transaction Bound Events
 공부해야하는데...

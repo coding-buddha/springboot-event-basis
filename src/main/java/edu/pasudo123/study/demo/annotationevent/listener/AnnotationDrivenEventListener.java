@@ -1,13 +1,9 @@
-package edu.pasudo123.study.demo.annotationevent.sync;
+package edu.pasudo123.study.demo.annotationevent.listener;
 
 import edu.pasudo123.study.demo.annotationevent.domain.step01.PaymentSync;
-import edu.pasudo123.study.demo.annotationevent.worker.MyWorkerProcess;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * 애노테이션 기반의 이벤트 리스터 작성
