@@ -107,7 +107,7 @@ protected void publishEvent(Object event, @Nullable ResolvableType eventType) {
 ```
 
 ## example
-|spec &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|desc|
+|<div style="width:250px;">spec</div>|desc|
 |---|---|
 |http://localhost:8080/sync|동기방식으로 이벤트 호출|
 |http://localhost:8080/async|비동기방식으로 이벤트 호출|
