@@ -26,7 +26,7 @@ public class DemoController {
 
     @GetMapping("sync")
     public Map<String, Object> sync() {
-        publisher.publishEvent(PaymentSync.of(UUID.randomUUID(), ThreadLocalRandom.current().nextLong(10000)));
+        publisher.publishEvent(PaymentSync.of(ThreadLocalRandom.current().nextLong(10000)));
 
         return new HashMap<>(){{
             put("current-time", LocalDateTime.now());
@@ -35,7 +35,7 @@ public class DemoController {
 
     @GetMapping("async")
     public Map<String, Object> async() {
-        publisher.publishEvent(PaymentAsync.of(UUID.randomUUID(), ThreadLocalRandom.current().nextLong(10000)));
+        publisher.publishEvent(PaymentAsync.of(ThreadLocalRandom.current().nextLong(10000)));
 
         return new HashMap<>(){{
             put("current-time", LocalDateTime.now());
@@ -45,7 +45,7 @@ public class DemoController {
     @GetMapping("async-conditional")
     public Map<String, Object> asyncConditional(@RequestParam(defaultValue = "false", value = "condition") Boolean condition) {
         final PaymentConditionalAsync payment = PaymentConditionalAsync
-                .of(UUID.randomUUID(), ThreadLocalRandom.current().nextLong(10000), condition);
+                .of(ThreadLocalRandom.current().nextLong(10000), condition);
 
         // condition 값에 따라서 이벤트 pub 여부를 결정할 수 있다. : SpEL 이용
         publisher.publishEvent(payment);

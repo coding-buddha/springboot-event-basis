@@ -15,14 +15,14 @@ public class PaymentSync implements Payment {
     private final UUID uuid;
     private final Long pay;
 
-    private PaymentSync(final UUID uuid, final long pay) {
-        this.uuid = uuid;
+    private PaymentSync(final long pay) {
+        this.uuid = UUID.randomUUID();
         this.pay = pay;
     }
 
     @Builder
-    public static PaymentSync of(final UUID uuid, final long pay) {
-        return new PaymentSync(uuid, pay);
+    public static PaymentSync of(final long pay) {
+        return new PaymentSync(pay);
     }
 
     @Override

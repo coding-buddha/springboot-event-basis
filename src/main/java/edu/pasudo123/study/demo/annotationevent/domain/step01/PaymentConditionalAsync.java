@@ -14,17 +14,17 @@ public class PaymentConditionalAsync implements Payment {
 
     private final UUID uuid;
     private final Long pay;
-    private boolean awesome;
+    private final boolean awesome;
 
-    private PaymentConditionalAsync(UUID uuid, Long pay, final boolean awesome) {
-        this.uuid = uuid;
+    private PaymentConditionalAsync(Long pay, final boolean awesome) {
+        this.uuid = UUID.randomUUID();
         this.pay = pay;
         this.awesome = awesome;
     }
 
     @Builder
-    public static PaymentConditionalAsync of(final UUID uuid, final long pay, final boolean awesome) {
-        return new PaymentConditionalAsync(uuid, pay, awesome);
+    public static PaymentConditionalAsync of(final long pay, final boolean awesome) {
+        return new PaymentConditionalAsync(pay, awesome);
     }
 
     @Override

@@ -28,13 +28,15 @@ public class DemoApplication implements ApplicationRunner {
                         new ContextClosedListener())
                 .run(args);
 
-        context.start();    // 따로 start 가 되는게 아니라 start 되었다고 명시해주어야 함
+        // context.start(); // spring itself event 가 발행됨 : ContextStartedListener, 따로 start 가 되는게 아니라 start 되었다고 명시해주어야 함
         // context.close(); // spring itself event 가 발행됨 : ContextClosedListener
     }
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
         log.info("[spring-event-basis-project] startup application");
-        eventRunner.run();
+
+        // spring 4.2 이하때 사용하는 spring event
+        // eventRunner.run();
     }
 }

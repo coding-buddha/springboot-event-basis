@@ -83,6 +83,13 @@ final ConfigurableApplicationContext context = new SpringApplicationBuilder(Demo
                     .run(args);
 ```
 
+## example
+|spec|desc|
+|---|---|
+|http://localhost:8080/sync|동기방식으로 이벤트 호출|
+|http://localhost:8080/async|비동기방식으로 이벤트 호출|
+|http://localhost:8080/async-condition?condition={true 또는 false}|비동기방식으로 조건부 이벤트 호출|
+
 ## Transaction Bound Events
 공부해야하는데...
 

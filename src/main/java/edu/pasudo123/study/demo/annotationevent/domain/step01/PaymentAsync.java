@@ -15,14 +15,14 @@ public class PaymentAsync implements Payment {
     private final UUID uuid;
     private final Long pay;
 
-    private PaymentAsync(final UUID uuid, final long pay) {
-        this.uuid = uuid;
+    private PaymentAsync(final long pay) {
+        this.uuid = UUID.randomUUID();
         this.pay = pay;
     }
 
     @Builder
-    public static PaymentAsync of(final UUID uuid, final long pay) {
-        return new PaymentAsync(uuid, pay);
+    public static PaymentAsync of(final long pay) {
+        return new PaymentAsync(pay);
     }
 
     @Override
