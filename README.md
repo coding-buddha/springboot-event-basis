@@ -115,7 +115,8 @@ protected void publishEvent(Object event, @Nullable ResolvableType eventType) {
 |http://localhost:8080/auto-wrapping-event|pojo 에 ApplicationEvent 를 상속받지 않더라도 spring 단에서 유연하게 처리한다. (내부적으로 PayloadApplicationEvent 로 wrapping 하여 이벤트가 호출됨)|
 
 ## Transaction Bound Events
-추후 공부예정...
+* 이벤트 송신쪽에서 트랜잭션 바인딩 상태에서 이벤트 호출여부를 결정할 수 있다. (유용할 것 같은 기분)
+* 해당 내용은 이후에 공부할 수 있도록 하자.
 
 ## reference 
 * https://www.baeldung.com/spring-events
