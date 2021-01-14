@@ -107,16 +107,17 @@ protected void publishEvent(Object event, @Nullable ResolvableType eventType) {
 ```
 
 ## example
-|spec|desc|
+|spec &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|desc|
 |---|---|
 |http://localhost:8080/sync|동기방식으로 이벤트 호출|
 |http://localhost:8080/async|비동기방식으로 이벤트 호출|
-|http://localhost:8080/async-condition?condition={true 또는 false}|비동기방식으로 조건부 이벤트 호출|
+|http://localhost:8080/async-condition?condition={true-or-false}|비동기방식으로 조건부 이벤트 호출|
 |http://localhost:8080/auto-wrapping-event|pojo 에 ApplicationEvent 를 상속받지 않더라도 spring 단에서 유연하게 처리한다. (내부적으로 PayloadApplicationEvent 로 wrapping 하여 이벤트가 호출됨)|
 
 ## Transaction Bound Events
-공부해야하는데...
+추후 공부예정...
 
 ## reference 
 * https://www.baeldung.com/spring-events
 * https://spring.io/blog/2015/02/11/better-application-events-in-spring-framework-4-2
+* https://reflectoring.io/spring-boot-application-events-explained/
